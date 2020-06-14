@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MenuServiceService} from './menu-service.service';
 import { FooterComponent } from './footer/footer.component';
+import { ApexFpsGuideComponent } from './apex-fps-guide/apex-fps-guide.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     HeaderComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    ApexFpsGuideComponent
   ],
   imports: [
     BrowserModule,
