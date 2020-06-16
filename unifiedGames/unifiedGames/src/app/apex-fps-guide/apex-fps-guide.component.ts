@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FpsGuideService} from '../fps-guide.service';
 
 @Component({
   selector: 'app-apex-fps-guide',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApexFpsGuideComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _Fps: FpsGuideService) { }
 
+  ApexFps=[]
   ngOnInit(): void {
+   // console.log("control is here");
+    this._Fps.getApexFps()
+    .subscribe((data)=>{
+      this.ApexFps=data;
+      console.log(data);
+    },
+    (err)=> console.log(err)
+    )  
   }
+
+ 
 
 }

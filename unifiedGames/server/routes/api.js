@@ -5,6 +5,8 @@ const mongoose= require('mongoose');
 
 
 const Menu=require('../models/menuSchema');
+
+
 const db="mongodb://localhost/unifiedGames";
 mongoose.connect(db,(err)=>{
     if(err){
@@ -27,6 +29,20 @@ router.get('/Menu',(req,res)=>{
         }
     })
 })
+router.get('/ApexFps',(req,res)=>{
+    console.log('its here !!!!!');
+    ApexFps.findOne({},(err,ApexFps)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            res.status(200).send(ApexFps);
+        }
+    })
+
+})
+
 
 module.exports =router;
 

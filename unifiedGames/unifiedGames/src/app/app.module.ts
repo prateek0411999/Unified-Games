@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MenuServiceService} from './menu-service.service';
 import { FooterComponent } from './footer/footer.component';
 import { ApexFpsGuideComponent } from './apex-fps-guide/apex-fps-guide.component';
+import {FpsGuideService} from './fps-guide.service';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ApexFpsGuideComponent } from './apex-fps-guide/apex-fps-guide.component
   ],
   providers: [
     MenuServiceService,
+    FpsGuideService
 
   ],
   bootstrap: [AppComponent]

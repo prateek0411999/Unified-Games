@@ -16,6 +16,7 @@ const mongoose= require('mongoose');
 
 
 const Menu=require('./models/menuSchema');
+const Apex=require('./models/ApexFPS');
 
 const db="mongodb://localhost/unifiedGames";
 mongoose.connect(db,(err)=>{
@@ -40,6 +41,19 @@ app.get('/menu',(req,res)=>{
             res.status(200).json(menu);
         }
     })
+})
+app.get('/ApexFps',(req,res)=>{
+    console.log('its here !!!!!');
+    Apex.find({},(err,data)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            res.status(200).send(data);
+        }
+    })
+
 })
 
 
