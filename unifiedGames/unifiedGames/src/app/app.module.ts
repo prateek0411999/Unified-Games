@@ -10,6 +10,8 @@ import {MenuServiceService} from './menu-service.service';
 import { FooterComponent } from './footer/footer.component';
 import { ApexFpsGuideComponent } from './apex-fps-guide/apex-fps-guide.component';
 import {FpsGuideService} from './fps-guide.service';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {FpsGuideService} from './fps-guide.service';
     HeaderComponent,
     MenuComponent,
     FooterComponent,
-    ApexFpsGuideComponent
+    ApexFpsGuideComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
