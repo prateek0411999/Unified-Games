@@ -9,22 +9,45 @@
 		<hr>
         <div class="form-group">
 			<div class="row">
-				<div class="col"><input type="text" class="form-control"  placeholder="First Name" formControlName="firstname" required="required"></div>
-				<div class="col"><input type="text" class="form-control"  placeholder="Last Name" required="required" formControlName="lastname"></div>
+                <div class="col">
+                    <input type="text" [class.is-invalid]="signUpForm.get('firstname').invalid && signUpForm.get('firstname').touched"  class="form-control"  placeholder="First Name" formControlName="firstname" required="required">
+                    <!-- <small [class.d-none]="signUpForm.get('firstname').valid || signUpForm.get('firstname').untouched" class="text-danger">First name is required</small>
+               -->
+               <div *ngIf="signUpForm.get('firstname').invalid && signUpForm.get('firstname').touched">
+                <small *ngIf="signUpForm.get('firstname').errors?.required" class="text-danger">First name is required</small>
+                <small *ngIf="signUpForm.get('firstname').errors?.minlength" class="text-danger">First name must be of atleast 3 characters</small>
+            </div>
+                </div>
+                <div class="col">
+                    <input type="text" [class.is-invalid]="signUpForm.get('lastname').invalid && signUpForm.get('lastname').touched" class="form-control"  placeholder="Last Name" required="required" formControlName="lastname">
+                </div>
+                <div *ngIf="signUpForm.get('lastname').invalid && signUpForm.get('lastname').touched">
+                    <small *ngIf="signUpForm.get('lastname').errors?.required" class="text-danger">Last name is required</small>
+                    <small *ngIf="signUpForm.get('lastname').errors?.minlength" class="text-danger">Last name must be of atleast 3 characters</small>
+                </div>
 			</div>        	
         </div>
+        
         <div class="form-group">
-            
-            <input type="text" class="form-control"placeholder="Username" formControlName="username" required>
+        	<input type="email" [class.is-invalid]="signUpForm.get('email').invalid && signUpForm.get('email').touched" class="form-control" formControlName="email" placeholder="Email" required="required">
+        </div>
+        <div *ngIf="signUpForm.get('email').invalid && signUpForm.get('email').touched">
+            <small *ngIf="signUpForm.get('email').errors?.required" class="text-danger">Email field is required</small>
+            <small *ngIf="signUpForm.get('email').errors?.pattern" class="text-danger" >Please provide a email address </small>
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" formControlName="email" placeholder="Email" required="required">
+            <input type="tel" [class.is-invalid]="signUpForm.get('contactno').invalid && signUpForm.get('contactno').touched" class="form-control" formControlName="contactno" placeholder="Contact no.">
+        </div>
+        <div *ngIf="signUpForm.get('contactno').invalid && signUpForm.get('contactno').touched">
+            <small *ngIf="signUpForm.get('contactno').errors?.required" class="text-danger">Contact is required</small>
+            <small *ngIf="signUpForm.get('contactno').errors?.pattern" class="text-danger" >Invalid Contact no.( should start from 7-9 and must be of 10 digits)</small>
         </div>
 		<div class="form-group">
             <input type="password" class="form-control" placeholder="Password"formControlName="password" required="required">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control"  placeholder="Confirm Password"formControlName="confirmPassword" required="required">
+            <input type="password" [class.is-invalid]="signUpForm.errors?.misMatch" class="form-control"  placeholder="Confirm Password"formControlName="confirmPassword" required="required">
+            <small class="text-danger" *ngIf="signUpForm.errors?.misMatch">Passwords do not match</small>
         </div>        
         
 		<div class="form-group">
