@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-image: url("../../assets/images/league_of_legends_ekko_4k_hd-1920x1080.jpg");
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -10,7 +10,10 @@ font-family: 'Numans', sans-serif;
 
 .container{
 height: 100%;
+background-image: url("../../assets/images/league_of_legends_ekko_4k_hd-1920x1080.jpg");
 align-content: center;
+background-size: cover;
+background-repeat: no-repeat;
 }
 
 .card{
