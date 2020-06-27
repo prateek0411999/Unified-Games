@@ -12,6 +12,8 @@ import { ApexFpsGuideComponent } from './apex-fps-guide/apex-fps-guide.component
 import {FpsGuideService} from './fps-guide.service';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import {RegisterUserService} from './register-user.service';
+
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
@@ -35,7 +37,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     MenuServiceService,
-    FpsGuideService
+    FpsGuideService,
+    RegisterUserService
 
   ],
   bootstrap: [AppComponent]

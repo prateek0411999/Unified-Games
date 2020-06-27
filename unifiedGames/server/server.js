@@ -17,6 +17,10 @@ const mongoose= require('mongoose');
 
 const Menu=require('./models/menuSchema');
 const Apex=require('./models/ApexFPS');
+const User=require('./models/user');
+
+
+
 
 const db="mongodb://localhost/unifiedGames";
 mongoose.connect(db,(err)=>{
@@ -67,4 +71,25 @@ app.get('/',(req,res)=>{
 app.listen(PORT, ()=>{
     console.log('server running on localhost'+ PORT);
 
+})
+
+
+//posting the registered users into the database
+app.post('/signup',(req,res)=>{
+
+    console.log(req.body);
+    console.log("--------------");
+    console.log('------------------------------------------')
+    let userData= req.body;
+    let user=new User(userData);
+
+    user.save((error,registeredUser)=>{
+        if(error){
+            console.log(error);
+
+        }else{
+            res.status(200).send("data inserted into the database");
+            res.status(200).json(registeredUser);
+        }
+    })
 })
