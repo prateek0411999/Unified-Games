@@ -87,6 +87,32 @@ app.post('/signup',(req,res)=>{
     })
 })
 
+app.post('/login',(req,res)=>{
+    console.log('|||||||||||||||||||||||||||||||');
+
+    let userData=req.body;
+    console.log(userData);
+    User.findOne({email: userData.email},(error,user)=>{
+        console.log(user.password);
+        if(error){
+            console.log(error);
+          }
+        else{
+            if(!user){
+                res.status(401).send('invalid email')
+            }else{
+                if(user.password !== userData.password){
+                    res.status(401).send('Invalid password')
+                }else{
+                    console.log('||||||------- its here')
+                   res.json(user);
+                }
+            }
+        }
+    })
+})
+
+
 
 const PORT = 3000
 

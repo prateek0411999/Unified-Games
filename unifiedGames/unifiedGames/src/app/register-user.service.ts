@@ -7,8 +7,10 @@ import{HttpClient} from '@angular/common/http';
 export class RegisterUserService {
 
   constructor(private _http: HttpClient) {  }
-  private _url2="http://localhost:3000/signup";
 
+  private _url2="http://localhost:3000/signup";
+  private _url3="http://localhost:3000/login";
+  
   register(user)
   {
     console.log("call hua register ");
@@ -17,4 +19,10 @@ export class RegisterUserService {
 
 
   }
+
+  loginUser(luser){
+    return this._http.post<any>(this._url3,luser);
+
+  }
+
 }

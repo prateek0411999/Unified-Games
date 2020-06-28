@@ -4,7 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { forbiddenNameValidator } from 'shared/first-name.validator';
 import { PasswordValidator } from 'shared/password.validator';
 import {RegisterUserService} from '../register-user.service';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -13,7 +13,8 @@ import {RegisterUserService} from '../register-user.service';
 export class SignupComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
-    private _registerUser: RegisterUserService) { }
+    private _registerUser: RegisterUserService,
+    private _router: Router) { }
 
     signUpForm: FormGroup;
 
@@ -46,8 +47,11 @@ export class SignupComponent implements OnInit {
     this._registerUser.register(this.signUpForm.value)
     .subscribe(
       response => console.log('Success!', response),
-      error => console.log('!!!!!!error return!!!!!!!!!')
+      error => console.log('!!!!!!error return!!!!!!!!!',error)
     );
+
+    window.alert("You have successfully signed up redirect to login page");
+    this._router.navigate(['/login']);
 }
 
 }
