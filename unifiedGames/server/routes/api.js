@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose= require('mongoose');
 //const jwt =require('jsonwebtoken');
 
-
+//this file is not being used i'm directly creating the routes in the server.js file 
 const Menu=require('../models/menuSchema');
 
 

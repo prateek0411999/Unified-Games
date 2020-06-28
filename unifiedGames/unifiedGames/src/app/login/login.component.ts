@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  flag=false;
+
   constructor(private _router: Router,
     private _login: RegisterUserService) { }
 
@@ -23,8 +25,15 @@ export class LoginComponent implements OnInit {
     console.log(this.loginUserData);
     this._login.loginUser(this.loginUserData)
     .subscribe(
-      res=> { console.log('Success!!!!!!!',res); window.alert("redirect to home page"); this._router.navigate(['/Menu']);},
-      err=> console.log(err)
+      res=> { 
+      console.log('Success!!!!!!!',res); 
+      localStorage.setItem('token',res.token);
+      window.alert("redirect to home page"); 
+      this._router.navigate(['/Menu']);
+
+    },
+      err=> {window.alert("Pleas enter valid credentials");
+      this._router.navigate(['/login'])}
     )
   }
 }

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {MenuServiceService} from './menu-service.service';
 import { FooterComponent } from './footer/footer.component';
 import { ApexFpsGuideComponent } from './apex-fps-guide/apex-fps-guide.component';
@@ -16,6 +16,10 @@ import {RegisterUserService} from './register-user.service';
 
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './auth.guard';
+import {TokenInterceptorService} from './token-interceptor.service';
+
+
 
 @NgModule({
   declarations: [
@@ -38,9 +42,15 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
   providers: [
     MenuServiceService,
     FpsGuideService,
-    RegisterUserService
-
+    RegisterUserService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

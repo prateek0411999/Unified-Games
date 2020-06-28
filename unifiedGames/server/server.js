@@ -1,4 +1,6 @@
 const express= require('express');
+const jwt=require('jsonwebtoken');
+
 const bodyParser= require('body-parser');
 const cors =require('cors');
 
@@ -36,7 +38,32 @@ mongoose.connect(db,(err)=>{
 });
 //_id: ObjectId("5ed6a6743825f07d66d139f1")
 
-app.get('/menu',(req,res)=>{
+function verifyToken(req, res, next) {
+    if(!req.headers.authorization) {
+      return res.status(401).send('Unauthorized request')
+    }
+    //extract the token value from bearer token 
+    let token = req.headers.authorization.split(' ')[1]
+   
+    if(token === 'null') {
+      return res.status(401).send('Unauthorized request')    
+    }
+
+    let payload = jwt.verify(token, 'secretKey')
+ 
+ 
+    if(!payload) {
+      return res.status(401).send('Unauthorized request')    
+    }
+
+    req.userId = payload.subject
+    next()
+    
+  }
+
+
+//firstly this verifyToken will run if token verifies then only this api code will be executed
+app.get('/menu',verifyToken,(req,res)=>{
 
     console.log('!!!!!!!!!!!')
     Menu.find({},(err,menu)=>{
@@ -80,9 +107,15 @@ app.post('/signup',(req,res)=>{
             console.log(error);
 
         }else{
+            //first creating the payload(is an object that contains the registered user id)
+            let payload= {subject: registeredUser._id}
+            //lets sign a token 
+            let token= jwt.sign(payload, 'secretKey');
+            //last step is to send the token as an object 
+
             
             console.log("data inserted into the database");
-            res.status(200).send(registeredUser);
+            res.status(200).send({token});
         }
     })
 })
@@ -105,7 +138,10 @@ app.post('/login',(req,res)=>{
                     res.status(401).send('Invalid password')
                 }else{
                     console.log('||||||------- its here')
-                   res.json(user);
+                   
+                    let payload ={subject: user._id};
+                    let token=jwt.sign(payload,'secretKey')
+                    res.status(200).send({token});
                 }
             }
         }

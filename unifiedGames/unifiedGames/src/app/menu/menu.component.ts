@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuServiceService} from '../menu-service.service';
 import {Menu} from '../shared/menu';
+import { HttpErrorResponse } from '@angular/common/http';
+import{ Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -9,19 +11,29 @@ import {Menu} from '../shared/menu';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private _menu: MenuServiceService) { }
+  constructor(private _menu: MenuServiceService,
+    private _route: Router) { }
 
 //  menudata: Menu;
   menu =[]
   ngOnInit(): void {
     this._menu.getMenu()
-    .subscribe((data)=> {
+    .subscribe(
+      (data)=> {
       this.menu = data;
       console.log(data);
     },
     
 
-    (err)=> console.log('Yha p hh '+ err)
+    (err)=> {
+      if(err instanceof HttpErrorResponse){
+        if(err.status === 401)
+        {
+          this._route.navigate(['/login']);
+
+        }
+      }
+    }
 
     )
   }

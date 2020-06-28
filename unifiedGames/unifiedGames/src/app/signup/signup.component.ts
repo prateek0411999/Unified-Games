@@ -46,12 +46,14 @@ export class SignupComponent implements OnInit {
     console.log(this.signUpForm.value);
     this._registerUser.register(this.signUpForm.value)
     .subscribe(
-      response => console.log('Success!', response),
+      response => {console.log('Success!', response);
+            localStorage.setItem('token',response.token);
+    },
       error => console.log('!!!!!!error return!!!!!!!!!',error)
     );
 
-    window.alert("You have successfully signed up redirect to login page");
-    this._router.navigate(['/login']);
+    window.alert("You have successfully signed up redirect to menu page");
+    this._router.navigate(['/Menu']);
 }
 
 }
