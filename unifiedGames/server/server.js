@@ -8,7 +8,11 @@ app.use(cors());
 
 app.use(bodyParser.json())
 
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");    
+    next();
+  });
 
 //app.use('',api);
 const mongoose= require('mongoose');
@@ -61,6 +65,29 @@ app.get('/ApexFps',(req,res)=>{
 })
 
 
+//posting the registered users into the database
+app.post('/signup',(req,res)=>{
+
+    console.log(req.body);
+    console.log("--------------");
+    console.log('------------------------------------------')
+    let userData= req.body;
+    let user=new User(userData);
+
+    user.save((error,registeredUser)=>{
+        if(error){
+            console.log('---------error bolte public-----------')
+            console.log(error);
+
+        }else{
+            
+            console.log("data inserted into the database");
+            res.status(200).send(registeredUser);
+        }
+    })
+})
+
+
 const PORT = 3000
 
 app.get('/',(req,res)=>{
@@ -73,23 +100,3 @@ app.listen(PORT, ()=>{
 
 })
 
-
-//posting the registered users into the database
-app.post('/signup',(req,res)=>{
-
-    console.log(req.body);
-    console.log("--------------");
-    console.log('------------------------------------------')
-    let userData= req.body;
-    let user=new User(userData);
-
-    user.save((error,registeredUser)=>{
-        if(error){
-            console.log(error);
-
-        }else{
-            res.status(200).send("data inserted into the database");
-            res.status(200).json(registeredUser);
-        }
-    })
-})
