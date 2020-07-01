@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+
 import {RegisterUserService} from '../register-user.service';
 
 @Component({
@@ -9,7 +9,7 @@ import {RegisterUserService} from '../register-user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _registerUserService: RegisterUserService) { }
+  constructor(public _registerUserService: RegisterUserService) { }
 
   ngOnInit(): void {
   }

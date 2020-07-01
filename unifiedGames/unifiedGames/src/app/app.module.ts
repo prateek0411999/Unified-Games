@@ -18,6 +18,7 @@ import {RegisterUserService} from './register-user.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
 import {TokenInterceptorService} from './token-interceptor.service';
+import { FpsCoachingComponent } from './fps-coaching/fps-coaching.component';
 
 
 
@@ -29,7 +30,8 @@ import {TokenInterceptorService} from './token-interceptor.service';
     FooterComponent,
     ApexFpsGuideComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    FpsCoachingComponent
   ],
   imports: [
     BrowserModule,
