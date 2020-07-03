@@ -5,6 +5,7 @@ import { forbiddenNameValidator } from 'shared/first-name.validator';
 import { PasswordValidator } from 'shared/password.validator';
 import {RegisterUserService} from '../register-user.service';
 import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',

@@ -45,6 +45,7 @@ import { FpsCoachingComponent } from './fps-coaching/fps-coaching.component';
     MenuServiceService,
     FpsGuideService,
     RegisterUserService,
+    LoginComponent,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,

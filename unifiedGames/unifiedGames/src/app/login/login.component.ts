@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterUserService} from '../register-user.service';
 import {Router} from '@angular/router';
+import {LoggedInUser} from 'shared/loggedInUser';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,8 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   flag=false;
-
+ loggedInUser: LoggedInUser;
+  
   constructor(private _router: Router,
     private _login: RegisterUserService) { }
 
@@ -27,13 +30,30 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res=> { 
       console.log('Success!!!!!!!',res); 
+
       localStorage.setItem('token',res.token);
+
       window.alert("redirect to home page"); 
       this._router.navigate(['/Menu']);
 
+      this.loggedInUser=res.user1;
+      // this.$isLoggenIn.emit({firstname: this.loggedInUser.firstname, });
+
+      console.log(this.loggedInUser);
+      console.log(this.loggedInUser.firstname)
+      
+
     },
-      err=> {window.alert("Pleas enter valid credentials");
+      err=> {window.alert("Please enter valid credentials");
       this._router.navigate(['/login'])}
     )
   }
+
+ 
+
+
+}
+
+export interface LoggedInUserEmail{
+  email: string;
 }

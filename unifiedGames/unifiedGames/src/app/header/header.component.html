@@ -55,6 +55,10 @@
             <a class="nav-link" (click)="_registerUserService.logoutUser()" style="cursor: pointer;"  *ngIf="_registerUserService.loggedIn()" >log out </a>
           
           </li>
+          <li class="nav-item ">
+            <a class="nav-link"  style="cursor: pointer; " routerLink="/fpscoaching" routerLinkActive="activee"  *ngIf="_registerUserService.loggedIn()" >Coach others</a>
+          
+          </li>
       </ul>
       
     
