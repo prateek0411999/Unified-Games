@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       this._router.navigate(['/Menu']);
 
       this.loggedInUser=res.user1;
-      // this.$isLoggenIn.emit({firstname: this.loggedInUser.firstname, });
+      this._login.emmit(this.loggedInUser);
 
       console.log(this.loggedInUser);
       console.log(this.loggedInUser.firstname)

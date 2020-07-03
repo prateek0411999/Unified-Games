@@ -11,20 +11,16 @@ import {RegisterUserService} from '../register-user.service';
 })
 export class FpsCoachingComponent implements OnInit {
 
+  user: LoggedInUser;
   constructor(private _lc: LoginComponent,
     private _ss: RegisterUserService) { }
 
   ngOnInit(): void {
     console.log('-------!!!!!!!!!!!');
-    console.log(this._lc.loggedInUser);
+  
 
-    this._ss.$isLoggedIn
-    .subscribe( (email) => {
-      
-      console.log('got the email',email);
-
-    })
-    
+    this.user=this._ss.lgUser;
+    console.log(this.user);
 
     }
 

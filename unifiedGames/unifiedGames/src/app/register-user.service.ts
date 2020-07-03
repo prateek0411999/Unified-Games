@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import{HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import { EventEmitter } from 'protractor';
-import {LoggedInUserEmail} from './login/login.component';
+import {LoggedInUser} from 'shared/loggedInUser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterUserService {
 
-  $isLoggedIn= new EventEmitter();
-  user1: LoggedInUserEmail ={
-    email: ''
-  }
+  lgUser: LoggedInUser;
+
 
 
   constructor(private _http: HttpClient,
@@ -33,13 +30,12 @@ export class RegisterUserService {
 
   loginUser(luser){
 
-    this.user1.email=luser.email;
-  
     return this._http.post<any>(this._url3,luser);
 
   }
-  emmit(){
-    this.$isLoggedIn.emit(this.user1.email);
+  emmit(loggedInUser){
+    this.lgUser=loggedInUser;
+
   }
 
   loggedIn()
