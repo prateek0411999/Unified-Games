@@ -3,6 +3,10 @@ import { LoggedInUser } from 'shared/loggedInUser';
 import {LoginComponent} from '../login/login.component';
 import {RegisterUserService} from '../register-user.service';
 
+import {FormBuilder} from '@angular/forms';
+import {RegisterFpsCoachesService} from '../register-fps-coaches.service';
+
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-fps-coaching',
@@ -12,8 +16,13 @@ import {RegisterUserService} from '../register-user.service';
 export class FpsCoachingComponent implements OnInit {
 
   user: LoggedInUser;
+  fpsCoach: FormGroup;
+
   constructor(private _lc: LoginComponent,
-    private _ss: RegisterUserService) { }
+    private _ss: RegisterUserService,
+    private fb: FormBuilder,
+    private _registerFps: RegisterFpsCoachesService) { }
+
 
   ngOnInit(): void {
     console.log('-------!!!!!!!!!!!');
@@ -22,6 +31,46 @@ export class FpsCoachingComponent implements OnInit {
     this.user=this._ss.lgUser;
     console.log(this.user);
 
+    this.fpsCoach = this.fb.group({
+      firstname: [this.user.firstname,[Validators.required,Validators.minLength(3)]],
+      lastname: [this.user.lastname,[Validators.required,Validators.minLength(3)]],
+      
+      email: [this.user.email,[Validators.required,
+                  Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      contactno: [this.user.contactno,[Validators.required,
+                  Validators.pattern("^[7-9][0-9]{9}$")]],
+        
+      selectedgame: ['',Validators.required],
+      hoursingame: ['',[Validators.required,Validators.maxLength(1)]],
+      experience: ['',[Validators.required,Validators.maxLength(2)]],
+      available: ['',Validators.required],
+      perhourcharge: ['',Validators.required],
+      image: ['',Validators.required],
+      timings: ['',Validators.required]
+
+
+    });
+
+    }
+
+    onFileSelect(event){
+      const file= event.target.files[0];
+      console.log(file);
+
+    }
+    
+    
+    onSubmit()
+    {
+      console.log(this.fpsCoach.value);
+      this._registerFps.registerFpsCoach(this.fpsCoach.value)
+      .subscribe(
+        response => {console.log('Success!', response);
+        
+
+      },
+        error => console.log('!!!!!!error return!!!!!!!!!',error)
+      );
     }
 
 }

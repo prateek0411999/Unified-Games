@@ -13,7 +13,7 @@ import {FpsGuideService} from './fps-guide.service';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {RegisterUserService} from './register-user.service';
-
+import {RegisterFpsCoachesService} from  './register-fps-coaches.service';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
@@ -45,6 +45,7 @@ import { FpsCoachingComponent } from './fps-coaching/fps-coaching.component';
     MenuServiceService,
     FpsGuideService,
     RegisterUserService,
+    RegisterFpsCoachesService,
     LoginComponent,
     AuthGuard,
     {

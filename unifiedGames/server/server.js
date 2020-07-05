@@ -24,7 +24,7 @@ const mongoose= require('mongoose');
 const Menu=require('./models/menuSchema');
 const Apex=require('./models/ApexFPS');
 const User=require('./models/user');
-
+const fpsCoaches=require('./models/fpsCoaches')
 
 
 
@@ -119,6 +119,28 @@ app.post('/signup',(req,res)=>{
         }
     })
 })
+
+//posting fpsCoaches data
+app.post('/fpscoaching',(req,res)=>{
+
+    console.log(req.body);
+    console.log("--------------");
+    console.log('------------------------------------------')
+    let fpsCoachData= req.body;
+    let fpsCoach=new fpsCoaches(fpsCoachData);
+
+    fpsCoach.save((error,registeredFpsCoach)=>{
+        if(error){
+            console.log('---------error bolte public-----------')
+            console.log(error);
+
+        }else
+        {
+            res.status(200).send(registeredFpsCoach);
+        }
+    })
+})
+
 
 app.post('/login',(req,res)=>{
     console.log('|||||||||||||||||||||||||||||||');
