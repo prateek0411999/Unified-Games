@@ -14,11 +14,14 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {RegisterUserService} from './register-user.service';
 import {RegisterFpsCoachesService} from  './register-fps-coaches.service';
+import {environment} from '../../shared/environment';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
 import {TokenInterceptorService} from './token-interceptor.service';
 import { FpsCoachingComponent } from './fps-coaching/fps-coaching.component';
+import { YourOrdersComponent } from './your-orders/your-orders.component';
+import { YourCoachComponent } from './your-coach/your-coach.component';
 
 
 
@@ -31,7 +34,10 @@ import { FpsCoachingComponent } from './fps-coaching/fps-coaching.component';
     ApexFpsGuideComponent,
     LoginComponent,
     SignupComponent,
-    FpsCoachingComponent
+    FpsCoachingComponent,
+    YourOrdersComponent,
+    YourCoachComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,9 @@ import { FpsCoachingComponent } from './fps-coaching/fps-coaching.component';
     RegisterUserService,
     RegisterFpsCoachesService,
     LoginComponent,
+    HeaderComponent,
     AuthGuard,
+    
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

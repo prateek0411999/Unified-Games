@@ -77,6 +77,26 @@ app.get('/menu',verifyToken,(req,res)=>{
         }
     })
 })
+
+app.post('/checkFps',(req,res)=>{
+    let coachemail = req.body;
+    console.log('::::::::::::', coachemail.email)
+    fpsCoaches.findOne({email: coachemail.email},(error,coach)=>{
+        if(error){
+            console.log(error);
+          }
+        else{
+            if(!coach){
+                res.status(200).send(false)
+            }else{
+        
+                    res.status(200).send(true);                   
+
+                }
+            
+        }
+    })
+})
 app.get('/ApexFps',(req,res)=>{
     console.log('its here !!!!!');
     Apex.find({},(err,data)=>{

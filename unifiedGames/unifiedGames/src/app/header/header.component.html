@@ -55,10 +55,18 @@
             <a class="nav-link" (click)="_registerUserService.logoutUser()" style="cursor: pointer;"  *ngIf="_registerUserService.loggedIn()" >log out </a>
           
           </li>
-          <li class="nav-item ">
-            <a class="nav-link"  style="cursor: pointer; " routerLink="/fpscoaching" routerLinkActive="activee"  *ngIf="_registerUserService.loggedIn()" >Coach others</a>
-          
-          </li>
+                  
+            <li class="nav-item "*ngIf="_registerUserService.loggedIn()"  >
+            <a class="nav-link"  style="cursor: pointer;"  routerLink="/fpscoaching" routerLinkActive="activee" >Coach others</a>
+         </li>
+         <li class="nav-item " *ngIf="_registerUserService.loggedIn()"   >
+          <a class="nav-link"  style="cursor: pointer;"routerLink="/yourorders" routerLinkActive="activee" >Your Orders</a>
+       </li>
+       <li class="nav-item " >
+        <a class="nav-link"  style="cursor: pointer;"  routerLink="/yourcoach" routerLinkActive="activee"  *ngIf="_registerUserService.loggedIn()" >Your Coach</a>
+       </li>
+      
+
       </ul>
       
     
