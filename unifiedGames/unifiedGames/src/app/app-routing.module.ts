@@ -7,6 +7,8 @@ import { SignupComponent } from './signup/signup.component';
 import {FpsCoachingComponent} from './fps-coaching/fps-coaching.component';
 import {YourOrdersComponent} from './your-orders/your-orders.component';
 import {YourCoachComponent} from './your-coach/your-coach.component';
+import {DisplayFpsCoachesComponent} from './display-fps-coaches/display-fps-coaches.component';
+
 import { AuthGuard } from './auth.guard';
 
 
@@ -18,6 +20,7 @@ const routes: Routes = [
   {path: 'signup',component: SignupComponent},
   {path: 'yourorders',component: YourOrdersComponent,canActivate: [AuthGuard]},
   {path: 'fpscoaching',component: FpsCoachingComponent,canActivate: [AuthGuard]},
+  {path: 'displayFpsCoaches/:id', component: DisplayFpsCoachesComponent, canActivate: [AuthGuard]},
   {path: 'yourcoach', component: YourCoachComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: '/Menu', pathMatch: 'full' }
 

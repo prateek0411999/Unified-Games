@@ -14,6 +14,8 @@ export class MenuComponent implements OnInit {
   constructor(private _menu: MenuServiceService,
     private _route: Router) { }
 
+    selectedgame;
+
 //  menudata: Menu;
   menu =[]
   ngOnInit(): void {
@@ -36,6 +38,12 @@ export class MenuComponent implements OnInit {
     }
 
     )
+  }
+
+  selected()
+  {
+    console.log(this.selectedgame);
+
   }
 
 

@@ -54,7 +54,7 @@ export class SignupComponent implements OnInit {
     );
 
     window.alert("You have successfully signed up redirect to menu page");
-    this._router.navigate(['/Menu']);
+    this._router.navigate(['/login']);
 }
 
 }

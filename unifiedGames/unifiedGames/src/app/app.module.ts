@@ -22,6 +22,7 @@ import {TokenInterceptorService} from './token-interceptor.service';
 import { FpsCoachingComponent } from './fps-coaching/fps-coaching.component';
 import { YourOrdersComponent } from './your-orders/your-orders.component';
 import { YourCoachComponent } from './your-coach/your-coach.component';
+import { DisplayFpsCoachesComponent } from './display-fps-coaches/display-fps-coaches.component';
 
 
 
@@ -37,6 +38,7 @@ import { YourCoachComponent } from './your-coach/your-coach.component';
     FpsCoachingComponent,
     YourOrdersComponent,
     YourCoachComponent,
+    DisplayFpsCoachesComponent,
     
   ],
   imports: [

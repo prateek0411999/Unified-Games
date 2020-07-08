@@ -10,11 +10,11 @@ app.use(cors());
 
 app.use(bodyParser.json())
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");    
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");    
+//     next();
+//   });
 
 //app.use('',api);
 const mongoose= require('mongoose');
@@ -24,7 +24,8 @@ const mongoose= require('mongoose');
 const Menu=require('./models/menuSchema');
 const Apex=require('./models/ApexFPS');
 const User=require('./models/user');
-const fpsCoaches=require('./models/fpsCoaches')
+const fpsCoaches=require('./models/fpsCoaches');
+const { count } = require('./models/fpsCoaches');
 
 
 
@@ -97,6 +98,128 @@ app.post('/checkFps',(req,res)=>{
         }
     })
 })
+
+app.get('/getFpsCoachesByGameName/:id',(req,res)=>{
+    let data=req.params.id;
+
+    let data1=data.slice(3,4);
+
+    if(data1 == "1")
+    {
+        console.log('in 1..')
+        fpsCoaches.find({selectedgame : "Pubg Mobile"},(error,coach1)=>{
+            if(error)
+            {
+                console.log('......');
+                res.send(error);
+
+            }
+            else 
+            {
+                if(coach1)
+                {
+                    console.log('.............');
+                      res.status(200).send(coach1);
+                }
+                else
+                {
+                    console.log('.........................')
+                 res.status(200).send("No coach for this game ");
+                }
+            }
+        })
+
+    }
+    else
+    { 
+            if(data1=="2")
+            {
+                console.log('in 2');
+
+                fpsCoaches.find({selectedgame: "Apex Legends"},(error,coach2)=>{
+                    if(error)
+                    {
+                        console.log('error...')
+                        res.send(error);
+
+                    }
+                    else
+                    { 
+                        if(coach2)
+                        {
+                            console.log('........');
+                            console.log(coach2);
+                            res.status(200).send(coach2);
+                        }
+                        else
+                        {
+                            console.log('.....................');
+                            res.send("No coach for this game ");
+                        }
+                 }})
+            }
+            else
+            { 
+                if(data1=="3")
+                {
+
+                    console.log('in 3')
+                       fpsCoaches.find({selectedgame: "CS:GO"},(error,coach3)=>{
+                        if(error)
+                        {
+                            
+                            res.send(error);
+                        }
+                        else
+                        { 
+                            if(coach3)
+                            {
+                                console.log('........');
+                                res.status(200).send(coach3);
+                            }
+                            else
+                            {
+                                console.log('...................');
+                                res.send("No coach for this game ");
+                            }
+                        }})
+                }
+                else
+                {
+                     if(data1 == "4")
+                     {
+                         console.log('in 4');
+
+                        fpsCoaches.find({selectedgame: "Call of Duty"},(error,coach4)=>{
+                          if(error)
+                          {
+                              res.send(error);
+
+                         }
+                         else
+                         { 
+                             if(coach4)
+                            {
+                                console.log('........');
+                                res.status(200).send(coach4);
+                            }
+                            else
+                            {
+                                console.log('.....................');
+
+                                res.send("No coach for this game ");
+                            }
+                        }})
+
+                     }
+                }
+            }
+    }
+    console.log(data1);
+    
+})
+
+
 app.get('/ApexFps',(req,res)=>{
     console.log('its here !!!!!');
     Apex.find({},(err,data)=>{

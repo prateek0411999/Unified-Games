@@ -204,6 +204,18 @@ img.resize
   color: #747373;
 
 }
+.centered1
+{
+    position: absolute;
+  top: 30%;
+  
+  transform: translate(-50%, 50%);
+  font-size: x-large;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #747373;
+
+}
 .selectbox
 {
     position: absolute;

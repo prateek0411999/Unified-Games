@@ -120,12 +120,12 @@
         </div>
       </div>
 
-      <div class="container11">
+       <div class="container11">
         <img class="resize" src="../../assets/images/2012_london_olympic_games-1920x1080.jpg" alt="Snow" width="100" height="70">
         <div class="bottom-centered">Take your Game to the next Level</div>
         <div class="centered">I want to get better at</div>
         
-        <!-- <div class="selectbox">
+       <!--  <div class="selectbox">
           <select class="selectpicker">
             <option selected>Choose your game</option>
             <option value="1">{{event.Games[0].name}}</option>
@@ -136,6 +136,23 @@
          
         </div> -->
         
+        <div class="centered1" class="form-group">
+          <select class="form-control" [(ngModel)]="selectedgame" (change)="selected()">
+              <option class="hidden"  selected disabled>Please select your game:</option>
+              <option value="1">{{event.Games[0].name}}</option>
+              <option value="2">{{event.Games[1].name}}</option>
+              <option value="3">{{event.Games[2].name}}</option>
+              <option value="4">{{event.Games[3].name}}</option>
+              
+          </select>
+        <a [routerLink]="['/displayFpsCoaches', selectedgame]" class="btn-card">find your coach</a>
+
+      </div>
+      </div>  
+    
+      <!-- <div class="container11">
+        <h4 style="text-align: bottom; margin-left: 40%;">Take your Game to the next Level</h4>
+        <h4 style="text-align: center;">I want to get better at</h4>
         <div class="form-group">
           <select class="form-control">
               <option class="hidden"  selected disabled>Please select your game:</option>
@@ -148,9 +165,8 @@
         <a href="#" class="btn-card">find your coach</a>
 
       </div>
-      </div> 
-    
-
+      </div>
+         -->
       
   </div>
 
