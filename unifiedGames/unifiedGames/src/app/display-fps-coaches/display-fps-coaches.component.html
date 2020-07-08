@@ -1,1 +1,38 @@
-<br><br><p>display-fps-coaches works!</p>
+<br><br>
+<hr>
+<!-- contactno : String;
+    selectedgame: String;
+    hoursingame: String;
+    experience: String;
+    available: String;
+    perhourcharge: String;
+    image: String;
+    timings: String; -->
+
+   
+<div *ngFor=" let fpsCoach of fpscoach">
+    <div class="bs-example">
+    <div class="card" style="width: 70%">
+        <div class="row ">
+            <div class="col" style="background: #868e96;">
+                <img src="{{fpsCoach.image}}" class="card-img-top  img-rounded" alt="...">
+            </div>
+            <div class="col-sm-7">
+                <div class="card-body">
+                    <h5 class="card-title">{{fpsCoach.firstname}} {{fpsCoach.lastname}}</h5>
+                    <p class="card-text">Game : {{fpsCoach.selectedgame}}</p>
+                    <p class="card-text">Contact no : {{fpsCoach.contactno}}</p>
+                    <p class="card-text">Hours in game : {{fpsCoach.hoursingame}}</p>
+                    <p class="card-text">Experience : {{fpsCoach.experience}} years</p>
+                    <p class="card-text">Available for : {{fpsCoach.available}} hours</p>
+                    <p class="card-text">Per Hour Charge : {{fpsCoach.perhourcharge}}</p>
+                    <p class="card-text">Timings :  {{fpsCoach.timings}}</p>
+
+                    <a href="#" class="btn btn-primary stretched-link">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+</div>
