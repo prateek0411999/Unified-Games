@@ -23,6 +23,7 @@ import { FpsCoachingComponent } from './fps-coaching/fps-coaching.component';
 import { YourOrdersComponent } from './your-orders/your-orders.component';
 import { YourCoachComponent } from './your-coach/your-coach.component';
 import { DisplayFpsCoachesComponent } from './display-fps-coaches/display-fps-coaches.component';
+import{BookingService} from './booking.service';
 
 
 
@@ -52,6 +53,7 @@ import { DisplayFpsCoachesComponent } from './display-fps-coaches/display-fps-co
   providers: [
     MenuServiceService,
     FpsGuideService,
+    BookingService,
     RegisterUserService,
     RegisterFpsCoachesService,
     LoginComponent,

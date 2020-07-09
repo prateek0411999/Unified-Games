@@ -26,6 +26,7 @@ const Apex=require('./models/ApexFPS');
 const User=require('./models/user');
 const fpsCoaches=require('./models/fpsCoaches');
 const { count } = require('./models/fpsCoaches');
+const booking=require('./models/booking');
 
 
 
@@ -234,7 +235,22 @@ app.get('/ApexFps',(req,res)=>{
 
 })
 
+app.post('/book',(req,res)=>{
 
+    let bookingdetail=req.body;
+    let book = new booking(bookingdetail);
+    
+    book.save((error,bookdetails)=>{
+        if(error)
+        {
+            console.log('))))))',error);
+
+        }else{
+            res.status(200).send(bookdetails);
+        }
+    })
+
+})
 //posting the registered users into the database
 app.post('/signup',(req,res)=>{
 
