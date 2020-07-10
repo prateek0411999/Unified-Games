@@ -1,1 +1,55 @@
-<br><br><p>your-coach works!</p>
+
+<br><br><br>
+<h3 style="text-align: center;"> Your Coaches</h3>
+
+<div class="container" style="margin-left: 14%;">
+    <div class="row col-md-9 col-md-offset-5 custyle">
+        
+    <table class="table table-striped custab">
+        <div *ngFor="let book of details">
+    <thead>
+    
+        <tr>
+           
+            <th>CoachName</th>
+            <th>Game Name</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Experience</th>
+            <th>Per Hour Charge</th>
+            <th>Timings</th>
+            <th>Booking status</th>
+            <th class="text-center">Action</th>
+        </tr>
+        
+        </thead>
+    
+            <tr>
+                
+                <td>{{book.coach[0].firstname}} {{book.coach[0].lastname}}</td>
+            
+            
+                <td>{{book.coach[0].selectedgame}}</td>
+                <td>{{book.coach[0].email}}</td>
+                
+                <td>{{book.bookingdate}}</td>
+                <td>{{book.coach[0].experience}}</td>
+                <td>{{book.coach[0].perhourcharge}}</td>
+                <td>{{book.coach[0].timings}}</td>
+                <td>{{book.bookingstatus}}</td>
+                
+                <div *ngIf="book.bookingstatus=='Accepted'">
+                <td class="text-center"><button class="btn btn-success" disabled>Accepted</button></td>
+                </div>
+                <div *ngIf="book.bookingstatus=='Rejected'">
+                <td class="text-center"><button class="btn btn-danger" disabled>Rejected</button></td>
+                </div>
+                <div *ngIf="book.bookingstatus=='Not Accepted yet'">
+                    <td class="text-center"><button class="btn btn-primary" disabled>Not Accepted yet</button></td>
+                </div>
+            </tr>
+
+     </div>
+    </table>
+</div>
+</div>

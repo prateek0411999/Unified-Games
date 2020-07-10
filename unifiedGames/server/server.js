@@ -241,14 +241,61 @@ app.post('/getorders',(req,res)=>{
 
     
 })
+
+app.post('/userorders',(req,res)=>{
+    let email=req.body.email;
+
+    booking.find({user: {$elemMatch:{email: email}}},(err,bookdetail)=>{
+        if(err)
+        {
+            console.log(err);
+
+        }else{
+            if(!bookdetail)
+            {
+                res.status(200).send(false);
+            }else{
+                res.status(200).send(bookdetail);
+            }
+        }
+    })
+})
+
 app.post('/rejected',(req,res)=>{
-    let data=req.body.email;
+    let data=req.body.user[0].email;
+    let data1=req.body.coach[0].email;
     console.log(data);
-    booking.update({"user.email": data},{$set:{"bookingstatus": "Rejected"}}, (err,done)=>{
+    booking.updateOne({"user.email": data, "coach.email": data1},{$set:{"bookingstatus": "Rejected"}}, (err,done)=>{
         if(err){
+            
             console.log('!@#$$%^',err);
         }else{
-            res.status(200).send('updated');
+            if(done)
+            {
+            res.status(200).send(true);
+            }
+            else{
+                console.log(false);
+            }
+        }
+    })
+})
+app.post('/accepted',(req,res)=>{
+    let data=req.body.user[0].email;
+    let data1=req.body.coach[0].email;
+    console.log(data);
+    booking.updateOne({"user.email": data, "coach.email": data1},{$set:{"bookingstatus": "Accepted"}}, (err,done)=>{
+        if(err){
+            
+            console.log('!@#$$%^',err);
+        }else{
+            if(done)
+            {
+            res.status(200).send(true);
+            }
+            else{
+                console.log(false);
+            }
         }
     })
 })

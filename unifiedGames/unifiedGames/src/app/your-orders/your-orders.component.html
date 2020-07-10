@@ -13,6 +13,7 @@
             <th>Name</th>
             <th>Game Name</th>
             <th>Email</th>
+            <th>Date</th>
             <th>Booking status</th>
             <th class="text-center">Action</th>
         </tr>
@@ -26,8 +27,17 @@
             
                 <td>{{book.coach[0].selectedgame}}</td>
                 <td>{{book.user[0].email}}</td>
+                <td>{{book.bookingdate}}</td>
                 <td>{{book.bookingstatus}}</td>
-                <td class="text-center"><a class='btn btn-danger btn-xs' (click)="Reject(book)" ><span class="glyphicon glyphicon-edit"></span> Reject </a>&nbsp; &nbsp; <a (click)="Accept(book)" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span> Accept </a></td>
+                <div *ngIf="book.bookingstatus !=='Accepted'  && book.bookingstatus !=='Rejected' ">
+                <td class="text-center"><a class='btn btn-danger btn-xs' (click)="reject(book)" ><span class="glyphicon glyphicon-edit"></span> Reject </a>&nbsp; &nbsp; <a (click)="accept(book)" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span> Accept </a></td>
+                </div>
+                <div *ngIf="book.bookingstatus=='Accepted'">
+                <td class="text-center"><button class="btn btn-success">Accepted</button></td>
+                </div>
+                <div *ngIf="book.bookingstatus=='Rejected'">
+                <td class="text-center"><button class="btn btn-danger">Rejected</button></td>
+                </div>
             </tr>
 
      </div>

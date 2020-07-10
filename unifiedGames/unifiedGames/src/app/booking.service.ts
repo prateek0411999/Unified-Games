@@ -12,6 +12,7 @@ export class BookingService {
   private _url1="http://localhost:3000/getorders";
   private _url2="http://localhost:3000/rejected";
   private _url3="http://localhost:3000/accepted";
+  private _url4="http://localhost:3000/userorders";
 
   book(data)
   {
@@ -25,14 +26,20 @@ export class BookingService {
     
   }
 
-  Reject(data)
+  reject(data)
   {
+    console.log(data);
     return this._http.post<any>(this._url2,data);
 
   }
-  Accept(dd)
+  accept(dd)
   {
     return this._http.post<any>(this._url3,dd);
+  }
+
+  userOrders(orders)
+  {
+    return this._http.post<any>(this._url4,orders);
   }
 
 }

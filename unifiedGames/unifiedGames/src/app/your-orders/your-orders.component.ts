@@ -4,7 +4,7 @@ import {BookingService} from '../booking.service';
 import {LoggedInUser} from 'shared/loggedInUser';
 import {obj} from 'shared/Obj';
 import {Booking} from 'shared/booking';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-your-orders',
   templateUrl: './your-orders.component.html',
@@ -12,11 +12,11 @@ import {Booking} from 'shared/booking';
 })
 export class YourOrdersComponent implements OnInit {
 
-  constructor(private _rus: RegisterUserService,private _book: BookingService) { }
+  constructor(private _rus: RegisterUserService,public _book: BookingService,private _route: Router) { }
   user: LoggedInUser;
 
    items;
-
+    bookingstatus;
   flag;
 
   details: Booking[];
@@ -29,6 +29,7 @@ export class YourOrdersComponent implements OnInit {
        console.log(res);
        
        this.details=res;
+      
       
        //this.details=res;
        console.log(this.details);
@@ -43,13 +44,24 @@ export class YourOrdersComponent implements OnInit {
 
   }
 
-  Reject(details)
+  reject(detail)
   {
-    this._book.Reject(details.user[0])
+    console.log(detail);
+
+    this._book.reject(detail)
     .subscribe((res)=>{
-      console.log(res)
+      console.log(res);
+      this.ngOnInit();
     },err=> console.log(err));
   }
   
+  accept(detail){
+    this._book.accept(detail)
+    .subscribe((res)=>{
+      console.log(res);
+      this.ngOnInit();
+    },error=>console.log(error));
+
+  }
 
 }
