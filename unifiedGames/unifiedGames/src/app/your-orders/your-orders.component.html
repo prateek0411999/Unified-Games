@@ -1,1 +1,36 @@
-<br><br><p>your-orders works!</p>
+<br><br><br>
+<h3 style="text-align: center;"> Manage Your Orders</h3>
+
+<div class="container" style="margin-left: 17%;">
+    <div class="row col-md-9 col-md-offset-5 custyle">
+        
+    <table class="table table-striped custab">
+        <div *ngFor="let book of details">
+    <thead>
+    
+        <tr>
+           
+            <th>Name</th>
+            <th>Game Name</th>
+            <th>Email</th>
+            <th>Booking status</th>
+            <th class="text-center">Action</th>
+        </tr>
+        
+        </thead>
+    
+            <tr>
+                
+                <td>{{book.user[0].firstname}} {{book.user[0].lastname}}</td>
+            
+            
+                <td>{{book.coach[0].selectedgame}}</td>
+                <td>{{book.user[0].email}}</td>
+                <td>{{book.bookingstatus}}</td>
+                <td class="text-center"><a class='btn btn-danger btn-xs' (click)="Reject(book)" ><span class="glyphicon glyphicon-edit"></span> Reject </a>&nbsp; &nbsp; <a (click)="Accept(book)" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span> Accept </a></td>
+            </tr>
+
+     </div>
+    </table>
+</div>
+</div>

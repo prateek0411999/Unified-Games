@@ -1,3 +1,4 @@
+
 export class FpsCoach {
 
     __v: number;

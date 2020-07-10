@@ -220,6 +220,39 @@ app.get('/getFpsCoachesByGameName/:id',(req,res)=>{
     
 })
 
+app.post('/getorders',(req,res)=>{
+    let data=req.body.email;
+    console.log(data);
+    
+    booking.find({coach : {$elemMatch : {email : data}}}, (err,bookingdetail)=>{
+        if(err)
+        {
+            console.log('{}{}{}{}{}',err);
+
+        }
+        else {
+            if(!bookingdetail){
+                res.status(200).send(false);
+            }else{
+                res.status(200).send(bookingdetail);
+            }
+        }
+    })
+
+    
+})
+app.post('/rejected',(req,res)=>{
+    let data=req.body.email;
+    console.log(data);
+    booking.update({"user.email": data},{$set:{"bookingstatus": "Rejected"}}, (err,done)=>{
+        if(err){
+            console.log('!@#$$%^',err);
+        }else{
+            res.status(200).send('updated');
+        }
+    })
+})
+
 
 app.get('/ApexFps',(req,res)=>{
     console.log('its here !!!!!');

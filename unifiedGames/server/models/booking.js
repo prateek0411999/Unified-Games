@@ -2,8 +2,32 @@ const mongoose= require('mongoose');
 const Schema = mongoose.Schema
 const booking  = new Schema({
 
-    coachemail: String,
-    useremail: String,
+    coach: [{
+        _id: String,
+    firstname:String,
+    lastname: String,
+    email: String,
+    contactno : String,
+    selectedgame: String,
+    hoursingame: String,
+    experience: String,
+    available: String,
+    perhourcharge: String,
+    image: String,
+    timings: String,
+    }],
+
+    user: [{
+        _id: String,
+    confirmPassword: String,
+    
+    contactno: String,
+    email: String,
+    firstname: String,
+    lastname: String,
+    password: String,
+
+    }],
     bookingdate: String,
     bookingstatus: String,
 

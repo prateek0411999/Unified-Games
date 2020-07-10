@@ -72,7 +72,7 @@ export class DisplayFpsCoachesComponent implements OnInit {
     console.log(this.enteredDate)
     console.log(aa);
 
-    let book=new Booking(aa.email,this.user.email,this.enteredDate.toString(),"null");
+    let book=new Booking(aa,this.user,this.enteredDate.toString(),"Not Accepted yet");
     console.log(book);
 
     this._book.book(book)
