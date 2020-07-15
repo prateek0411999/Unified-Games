@@ -10,11 +10,16 @@ import {YourCoachComponent} from './your-coach/your-coach.component';
 import {DisplayFpsCoachesComponent} from './display-fps-coaches/display-fps-coaches.component';
 
 import { AuthGuard } from './auth.guard';
+import { CodFpsComponent } from './cod-fps/cod-fps.component';
+import { CsgoFpsComponent } from './csgo-fps/csgo-fps.component';
+import { PubgFpsComponent } from './pubg-fps/pubg-fps.component';
 
 
 const routes: Routes = [
   {path: 'ApexFps', component: ApexFpsGuideComponent,canActivate: [AuthGuard]},
-
+  {path: 'CodFps',component: CodFpsComponent,canActivate: [AuthGuard]},
+  {path: 'CsgoFps',component: CsgoFpsComponent,canActivate: [AuthGuard]},
+  {path: 'PubgFps',component: PubgFpsComponent,canActivate: [AuthGuard]},
   {path: 'Menu', component: MenuComponent,canActivate: [AuthGuard]},
   {path: 'login',component: LoginComponent},
   {path: 'signup',component: SignupComponent},

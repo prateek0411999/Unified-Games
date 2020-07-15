@@ -1,0 +1,136 @@
+ 
+ <p style="text-emphasis-color: black;"> <br><br>
+    
+ </p> 
+<div class="apexfpsheadi">
+
+</div>
+<div *ngFor="let apex of PubgFps">
+ <!-- <p>{{apex.Settings[0].displayMode}}<p></p>
+  -->
+ 
+
+
+<!-- Page Content -->
+<div class="container">
+
+ <div class="row">
+
+   <!-- Post Content Column -->
+   <div class="col-lg-8">
+
+     <!-- Title -->
+     <h1 class="mt-4">Fps guide to Pubg Mobile</h1>
+
+     <!-- Author -->
+     
+
+     <hr>
+
+     <!-- Date/Time -->
+     <p>Posted on July 15, 2020 </p>
+
+     <hr>
+
+     <!-- Preview Image -->
+     <img class="img-fluid rounded" src="../../assets/images/Screenshot_2020-07-12-20-16-00-862_com.tencent.ig.jpg" alt="">
+     <hr>
+     <img class="img-fluid rounded" src="../../assets/images/Screenshot_2020-07-12-20-16-06-560_com.tencent.ig.jpg" alt="">
+     <hr>
+     <img class="img-fluid rounded" src="../../assets/images/Screenshot_2020-07-12-20-16-49-761_com.tencent.ig.jpg" alt="">
+
+
+     <hr>
+
+     
+     <blockquote class="blockquote">
+       <p class="mb-0">Now if your phone is a flagship phone has a snapdragon 845 or above processor this is how you need to set your settings to gain the maximum fps </p>
+       <footer class="blockquote-footer">Here is the what you need to do 
+         <cite title="Source Title">{{apex.desc}}</cite>
+       </footer>
+     </blockquote>
+     <ul>
+     <li>Graphics : set your graphics to the lowest i.e. {{apex.Settings[0].grahics}}</li>
+
+     <li>Frame Rate : Set this as maximum that is showing in your device highest is the {{apex.Settings[1].frameRate}}</li>
+     <li>Screen Refresh Rate: {{apex.Settings[2].style}}</li>
+     <li>Render Resolution: {{apex.Settings[3].antiAliasing}}</li>
+     <li>Vsync : {{apex.Settings[4].colorblindMode}}</li>
+     <li>Custom Framerate Limit : {{apex.Settings[5].brightness}}</li>
+     <li>Nvidia Highlights : {{apex.Settings[6].autoAdjustSettings}}</li>
+     
+
+
+ </ul>
+    
+
+
+     <hr>
+
+     <!-- Comments Form -->
+     <div class="card my-4">
+       <h5 class="card-header">Leave a Comment:</h5>
+       <div class="card-body">
+         <form>
+           <div class="form-group">
+             <textarea class="form-control" rows="3"></textarea>
+           </div>
+           <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+       </div>
+     </div>
+
+     <!-- Single Comment -->
+     <div class="media mb-4">
+       <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+       <div class="media-body">
+         <h5 class="mt-0">Commenter Name</h5>
+         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+       </div>
+     </div>
+
+   
+
+   </div>
+
+   <!-- Sidebar Widgets Column -->
+   <div class="col-md-4">
+
+     
+     <!-- Categories Widget -->
+     <div class="card my-4">
+       <h5 class="card-header">Explore Fps guide for </h5>
+       <div class="card-body">
+         <div class="row">
+           <div class="col-lg-6">
+             <ul class="list-unstyled mb-0">
+               <li>
+                 <a routerLinkActive="activee" routerLink="/PubgFps">Pubg Mobile</a>
+               </li>
+               <li>
+                 <a routerLinkActive="activee" routerLink="/ApexFps">Apex Legends</a>
+               </li>
+               <li>
+                 <a routerLinkActive="activee" routerLink="/CsgoFps">CS:GO</a>
+               </li>
+             </ul>
+           </div>
+           
+         </div>
+       </div>
+     </div>
+
+     <!-- Side Widget -->
+     <div class="card my-4">
+       <h5 class="card-header">Comments</h5>
+       <div class="card-body">
+         If you do have more information to boost the fps please put it in the comments and do also post how much do you like our fps guidd </div>
+     </div>
+
+   </div>
+
+ </div>
+ <!-- /.row -->
+
+</div>
+</div>

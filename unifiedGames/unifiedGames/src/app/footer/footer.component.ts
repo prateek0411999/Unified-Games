@@ -10,7 +10,9 @@ export class FooterComponent implements OnInit {
   constructor(private _menu: MenuServiceService) { }
   menu =[]
   ngOnInit(): void {
-    this._menu.getMenu()
+
+    console.log('__________________---------');
+    this._menu.getFooter()
     .subscribe((data)=> {
       this.menu = data;
       console.log(data);

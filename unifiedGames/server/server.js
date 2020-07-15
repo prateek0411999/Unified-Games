@@ -41,6 +41,7 @@ mongoose.connect(db,(err)=>{
 //_id: ObjectId("5ed6a6743825f07d66d139f1")
 
 function verifyToken(req, res, next) {
+    console.log('*******');
     if(!req.headers.authorization) {
       return res.status(401).send('Unauthorized request')
     }
@@ -64,7 +65,7 @@ function verifyToken(req, res, next) {
   }
 
 
-//firstly this verifyToken will run if token verifies then only this api code will be executed
+//firstly thien verifies thes verifyToken will run if tokn only this api code will be executed
 app.get('/menu',verifyToken,(req,res)=>{
 
     console.log('!!!!!!!!!!!')
@@ -75,11 +76,26 @@ app.get('/menu',verifyToken,(req,res)=>{
         }
         else
         {
+            console.log('||||}}}}||||}}}|||}')
             res.status(200).json(menu);
         }
     })
 })
+app.get('/footer',(req,res)=>{
 
+    console.log('##$%^&*()')
+    Menu.find({},(err,menu)=>{
+        if(err)
+        {
+            console.log('bhai yeh na ata ese'+err);
+        }
+        else
+        {
+            console.log('||||}}}}||||}}}|||}')
+            res.status(200).json(menu);
+        }
+    })
+})
 app.post('/checkFps',(req,res)=>{
     let coachemail = req.body;
     console.log('::::::::::::', coachemail.email)
@@ -303,7 +319,46 @@ app.post('/accepted',(req,res)=>{
 
 app.get('/ApexFps',(req,res)=>{
     console.log('its here !!!!!');
-    Apex.find({},(err,data)=>{
+    Apex.find({id: "1"},(err,data)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            res.status(200).send(data);
+        }
+    })
+
+})
+app.get('/PubgFps',(req,res)=>{
+    console.log('its here !!!!!');
+    Apex.find({id: "2"},(err,data)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            res.status(200).send(data);
+        }
+    })
+
+})
+app.get('/CodFps',(req,res)=>{
+    console.log('its here !!!!!');
+    Apex.find({id: "4"},(err,data)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            res.status(200).send(data);
+        }
+    })
+
+})
+app.get('/CsgoFps',(req,res)=>{
+    console.log('its here !!!!!');
+    Apex.find({id: "1"},(err,data)=>{
         if(err)
         {
             console.log(err);

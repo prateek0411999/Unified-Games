@@ -24,6 +24,9 @@ import { YourOrdersComponent } from './your-orders/your-orders.component';
 import { YourCoachComponent } from './your-coach/your-coach.component';
 import { DisplayFpsCoachesComponent } from './display-fps-coaches/display-fps-coaches.component';
 import{BookingService} from './booking.service';
+import { CodFpsComponent } from './cod-fps/cod-fps.component';
+import { CsgoFpsComponent } from './csgo-fps/csgo-fps.component';
+import { PubgFpsComponent } from './pubg-fps/pubg-fps.component';
 
 
 
@@ -40,6 +43,9 @@ import{BookingService} from './booking.service';
     YourOrdersComponent,
     YourCoachComponent,
     DisplayFpsCoachesComponent,
+    CodFpsComponent,
+    CsgoFpsComponent,
+    PubgFpsComponent,
     
   ],
   imports: [

@@ -1,0 +1,146 @@
+ 
+ <p style="text-emphasis-color: black;"> <br><br>
+    
+ </p> 
+<div class="apexfpsheadi">
+
+</div>
+<div *ngFor="let apex of CodFps">
+ <!-- <p>{{apex.Settings[0].displayMode}}<p></p>
+  -->
+ 
+
+
+<!-- Page Content -->
+<div class="container">
+
+ <div class="row">
+
+   <!-- Post Content Column -->
+   <div class="col-lg-8">
+
+     <!-- Title -->
+     <h1 class="mt-4">Fps guide to Call Of Duty</h1>
+
+     <!-- Author -->
+     
+
+     <hr>
+
+     <!-- Date/Time -->
+     <p>Posted on July 13, 2020 </p>
+
+     <hr>
+
+     <!-- Preview Image -->
+     <img class="img-fluid rounded" src="../../assets/images/Screenshot (5).png" alt="">
+     <hr>
+     <img class="img-fluid rounded" src="../../assets/images/Screenshot (6).png" alt="">
+     <hr>
+     <img class="img-fluid rounded" src="../../assets/images/Screenshot (7).png" alt="">
+
+
+     <hr>
+
+     
+     <blockquote class="blockquote">
+       <p class="mb-0">Now if your pc or laptop has a dedicated gpu of atleast vram of 4gb (1050ti or above) and has a 4C/8T processor make your settings like the same as shown in the image above</p>
+       <footer class="blockquote-footer">Here is the what you need to do for
+         <cite title="Source Title">{{apex.desc}}</cite>
+       </footer>
+     </blockquote>
+     <ul>
+     <li>Display Mode : {{apex.Settings[0].displayMode}}</li>
+
+     <li>Aspect Ratio : {{apex.Settings[1].aspectRatio}}</li>
+     <li>Screen Refresh Rate: {{apex.Settings[2].screenRefreshRate}}</li>
+     <li>Render Resolution: {{apex.Settings[3].renderResolution}}</li>
+     <li>Vsync : {{apex.Settings[4].vsync}}</li>
+     <li>Custom Framerate Limit : {{apex.Settings[5].customFrameRateLimit}}</li>
+     <li>Nvidia Highlights : {{apex.Settings[6].nvidiaHighlights}}</li>
+     <li>Display Gamma: {{apex.Settings[7].displayGamma}}</li>
+     <li>Texture Resolution : {{apex.Settings[8].textureResolution}}</li>
+     <li>Texture Filter Anisotropic: {{apex.Settings[9].textureFilterAnisotropic}}</li>
+     <li>Particle Quality : {{apex.Settings[10].particleQuality}}</li>
+     <li>Bullet Impacts : {{apex.Settings[11].bulletImpacts}}</li>
+     <li>Tessalation : {{apex.Settings[12].tessellation}}</li>
+     <li>Shadow Map Resolution : {{apex.Settings[13].shadowMapResoltion}}</li>
+     <li>Cache Spot Shadows: {{apex.Settings[14].cacheSpotShadows}}</li>
+     <li>Particle Lightning: {{apex.Settings[15].particleLightning}}</li>
+     <li>Ambient Occlusion: {{apex.Settings[16].ambientOcclusion}}</li>
+     <li>Screen Space screenSpaceReflection: {{apex.Settings[17].screenSpaceReflection}}</li>
+
+
+ </ul>
+    
+
+
+     <hr>
+
+     <!-- Comments Form -->
+     <div class="card my-4">
+       <h5 class="card-header">Leave a Comment:</h5>
+       <div class="card-body">
+         <form>
+           <div class="form-group">
+             <textarea class="form-control" rows="3"></textarea>
+           </div>
+           <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+       </div>
+     </div>
+
+     <!-- Single Comment -->
+     <div class="media mb-4">
+       <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+       <div class="media-body">
+         <h5 class="mt-0">Commenter Name</h5>
+         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+       </div>
+     </div>
+
+   
+
+   </div>
+
+   <!-- Sidebar Widgets Column -->
+   <div class="col-md-4">
+
+     
+     <!-- Categories Widget -->
+     <div class="card my-4">
+       <h5 class="card-header">Explore Fps guide for </h5>
+       <div class="card-body">
+         <div class="row">
+           <div class="col-lg-6">
+             <ul class="list-unstyled mb-0">
+               <li>
+                 <a routerLinkActive="activee" routerLink="/PubgFps">Pubg Mobile</a>
+               </li>
+               <li>
+                 <a routerLinkActive="activee" routerLink="/ApexFps">Apex Legends</a>
+               </li>
+               <li>
+                 <a routerLinkActive="activee" routerLink="/CsgoFps">CS:GO</a>
+               </li>
+             </ul>
+           </div>
+           
+         </div>
+       </div>
+     </div>
+
+     <!-- Side Widget -->
+     <div class="card my-4">
+       <h5 class="card-header">Comments</h5>
+       <div class="card-body">
+         If you do have more information to boost the fps please put it in the comments and do also post how much do you like our fps guidd </div>
+     </div>
+
+   </div>
+
+ </div>
+ <!-- /.row -->
+
+</div>
+</div>
